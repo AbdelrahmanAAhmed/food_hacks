@@ -84,6 +84,7 @@ class _SignPageState extends State<SignPage> {
                           try {
                             await loginUser();
                             showSnackBar(context, 'Succses');
+                            Navigator.pushNamed(context, 'Home Page');
                           } on FirebaseAuthException catch (ex) {
                             showSnackBar(context, ex.toString());
                           } catch (ex) {

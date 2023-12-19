@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_hacks/views/home_page.dart';
 import 'package:food_hacks/views/sign_page.dart';
 import 'package:food_hacks/views/sign_up.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -21,7 +22,8 @@ class FoodHacks extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: {
         'Sign Up': (context) => SignUpPage(),
-        'Sign in': (context) => SignPage()
+        'Sign in': (context) => SignPage(),
+        'Home Page': (context) => const HomePage()
       },
       initialRoute: 'Sign in',
     );
