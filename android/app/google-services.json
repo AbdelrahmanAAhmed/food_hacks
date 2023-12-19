@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "991564407410",
+    "project_id": "food-hackss",
+    "storage_bucket": "food-hackss.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:991564407410:android:f26182484b7613db5f58eb",
+        "android_client_info": {
+          "package_name": "com.example.food_hacks"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7Ehrc245Hz9JHxsgoAFOO8U7k-0C9-0M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
