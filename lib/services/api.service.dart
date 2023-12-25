@@ -3,10 +3,11 @@ import 'package:food_hacks/models/foodmodel/categorymodel.dart';
 
 class CategoryService {
   final Dio _dio;
+  List<CategoriesModel> categoriesList = [];
 
   CategoryService(this._dio);
 
-  getFoodCategories() async {
+  Future<List<CategoriesModel>> getFoodCategories() async {
     Response response = await _dio.get(
         'https://www.themealdb.com/api/json/v1/1/categories.php?fbclid=IwAR1PsX_dnlwoGHc8mcf3dGPSGSMn7fbXsx6TadyFTHu6YVJ8r7-TFoEPrTg');
 
@@ -14,7 +15,6 @@ class CategoryService {
 
     List<dynamic> categories = jsonData["categories"];
 
-    List<CategoriesModel> categoriesList = [];
     for (var category in categories) {
       CategoriesModel categoriesModel = CategoriesModel(
         idCategory: category["idCategory"],
@@ -24,5 +24,6 @@ class CategoryService {
       );
       categoriesList.add(categoriesModel);
     }
+    return categoriesList;
   }
 }
