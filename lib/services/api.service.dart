@@ -1,14 +1,28 @@
 import 'package:dio/dio.dart';
+import 'package:food_hacks/models/foodmodel/categorymodel.dart';
 
-class ApiService {
+class CategoryService {
   final Dio _dio;
-  final BaseUrl = 'www.themealdb.com/api/json/v1/1/';
 
-  ApiService(this._dio);
+  CategoryService(this._dio);
 
-  Future<Map<String, dynamic>> get({required String endPoint}) async {
-    var response = await _dio.get('$BaseUrl$endPoint');
+  getFoodCategories() async {
+    Response response = await _dio.get(
+        'https://www.themealdb.com/api/json/v1/1/categories.php?fbclid=IwAR1PsX_dnlwoGHc8mcf3dGPSGSMn7fbXsx6TadyFTHu6YVJ8r7-TFoEPrTg');
 
-    return response.data;
+    Map<String, dynamic> jsonData = response.data;
+
+    List<dynamic> categories = jsonData["categories"];
+
+    List<CategoriesModel> categoriesList = [];
+    for (var category in categories) {
+      CategoriesModel categoriesModel = CategoriesModel(
+        idCategory: category["idCategory"],
+        categoryName: category["strCategory"],
+        categoryThumb: category["strCategoryThumb"],
+        categoryDescription: category["strCategoryDescription"],
+      );
+      categoriesList.add(categoriesModel);
+    }
   }
 }

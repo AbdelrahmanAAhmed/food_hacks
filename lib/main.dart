@@ -1,4 +1,6 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:food_hacks/services/api.service.dart';
 import 'package:food_hacks/views/home_page.dart';
 import 'package:food_hacks/views/sign_page.dart';
 import 'package:food_hacks/views/sign_up.dart';
@@ -10,7 +12,11 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.android,
   );
-  runApp(const FoodHacks());
+
+  CategoryService(Dio()).getFoodCategories();
+  runApp(
+    const FoodHacks(),
+  );
 }
 
 class FoodHacks extends StatelessWidget {
